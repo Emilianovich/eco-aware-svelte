@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutCcRouteImport } from './routes/about-cc'
+import { Route as CcInPanamaRouteImport } from './routes/cc-in-panama'
+import { Route as DictionaryRouteImport } from './routes/dictionary'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as HowToHelpRouteImport } from './routes/how-to-help'
+import { Route as ReferencesRouteImport } from './routes/references'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutCcRoute = AboutCcRouteImport.update({
+  id: '/about-cc',
+  path: '/about-cc',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CcInPanamaRoute = CcInPanamaRouteImport.update({
+  id: '/cc-in-panama',
+  path: '/cc-in-panama',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DictionaryRoute = DictionaryRouteImport.update({
+  id: '/dictionary',
+  path: '/dictionary',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowToHelpRoute = HowToHelpRouteImport.update({
+  id: '/how-to-help',
+  path: '/how-to-help',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferencesRoute = ReferencesRouteImport.update({
+  id: '/references',
+  path: '/references',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about-cc': typeof AboutCcRoute
+  '/cc-in-panama': typeof CcInPanamaRoute
+  '/dictionary': typeof DictionaryRoute
+  '/faq': typeof FaqRoute
+  '/how-to-help': typeof HowToHelpRoute
+  '/references': typeof ReferencesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about-cc': typeof AboutCcRoute
+  '/cc-in-panama': typeof CcInPanamaRoute
+  '/dictionary': typeof DictionaryRoute
+  '/faq': typeof FaqRoute
+  '/how-to-help': typeof HowToHelpRoute
+  '/references': typeof ReferencesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about-cc': typeof AboutCcRoute
+  '/cc-in-panama': typeof CcInPanamaRoute
+  '/dictionary': typeof DictionaryRoute
+  '/faq': typeof FaqRoute
+  '/how-to-help': typeof HowToHelpRoute
+  '/references': typeof ReferencesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about-cc'
+    | '/cc-in-panama'
+    | '/dictionary'
+    | '/faq'
+    | '/how-to-help'
+    | '/references'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about-cc'
+    | '/cc-in-panama'
+    | '/dictionary'
+    | '/faq'
+    | '/how-to-help'
+    | '/references'
+  id:
+    | '__root__'
+    | '/'
+    | '/about-cc'
+    | '/cc-in-panama'
+    | '/dictionary'
+    | '/faq'
+    | '/how-to-help'
+    | '/references'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutCcRoute: typeof AboutCcRoute
+  CcInPanamaRoute: typeof CcInPanamaRoute
+  DictionaryRoute: typeof DictionaryRoute
+  FaqRoute: typeof FaqRoute
+  HowToHelpRoute: typeof HowToHelpRoute
+  ReferencesRoute: typeof ReferencesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about-cc': {
+      id: '/about-cc'
+      path: '/about-cc'
+      fullPath: '/about-cc'
+      preLoaderRoute: typeof AboutCcRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cc-in-panama': {
+      id: '/cc-in-panama'
+      path: '/cc-in-panama'
+      fullPath: '/cc-in-panama'
+      preLoaderRoute: typeof CcInPanamaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dictionary': {
+      id: '/dictionary'
+      path: '/dictionary'
+      fullPath: '/dictionary'
+      preLoaderRoute: typeof DictionaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-to-help': {
+      id: '/how-to-help'
+      path: '/how-to-help'
+      fullPath: '/how-to-help'
+      preLoaderRoute: typeof HowToHelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/references': {
+      id: '/references'
+      path: '/references'
+      fullPath: '/references'
+      preLoaderRoute: typeof ReferencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutCcRoute: AboutCcRoute,
+  CcInPanamaRoute: CcInPanamaRoute,
+  DictionaryRoute: DictionaryRoute,
+  FaqRoute: FaqRoute,
+  HowToHelpRoute: HowToHelpRoute,
+  ReferencesRoute: ReferencesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
