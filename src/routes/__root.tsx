@@ -1,25 +1,9 @@
-import { createRootRoute, Outlet, Scripts, HeadContent } from "@tanstack/react-router"
+import { createRootRoute, Outlet } from "@tanstack/react-router"
 import Footer from "../components/layout/footer/Footer.tsx"
 import Header from "../components/layout/header/Header.tsx"
 import appCss from "../styles.css?url"
 
-const RootDocument = () => (
-  <html lang="es">
-    <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <HeadContent />
-    </head>
-    <body>
-      <Header />
-      <Outlet />
-      <Footer />
-    </body>
-    <Scripts />
-  </html>
-)
-
 export const Route = createRootRoute({
-  component: RootDocument,
   head: () => ({
     meta: [
       {
@@ -44,5 +28,11 @@ export const Route = createRootRoute({
       },
     ],
   }),
-  shellComponent: RootDocument,
+  component: () => (
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
+  ),
 })

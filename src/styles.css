@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
+@import "@fontsource-variable/fredoka";
 @import "tailwindcss";
 
 :root {
@@ -54,7 +54,7 @@
 }
 
 @theme inline {
-  --font-sans: "Fredoka", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Fredoka Variable", ui-sans-serif, system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
