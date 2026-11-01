@@ -4,6 +4,8 @@ import FooterText from "./FooterText.tsx"
 import { Link } from "@tanstack/react-router"
 import Logo from "../../ui/logo/Logo.tsx"
 
+const classesForLink = "hover:scale-95 transition duration-100 ease-in-out"
+
 const Footer = () => (
   <footer className="relative flex h-50 items-center justify-evenly gap-4 overflow-hidden">
     <FooterLandscape
@@ -22,13 +24,13 @@ const Footer = () => (
     <FooterCtn
       title={"Navegación"}
       content={[
-        <Link to={"/about-cc"} key={"col-2-1"}>
+        <Link to={"/about-cc"} key={"col-2-1"} className={classesForLink}>
           <FooterText text={"Acerca del cambio climático"} />
         </Link>,
-        <Link to={"/cc-in-panama"} key={"col-2-2"}>
+        <Link to={"/cc-in-panama"} key={"col-2-2"} className={classesForLink}>
           <FooterText text={"Cambio climático en Panamá"} />
         </Link>,
-        <Link to={"/how-to-help"} key={"col-2-3"}>
+        <Link to={"/how-to-help"} key={"col-2-3"} className={classesForLink}>
           <FooterText text={"¿Cómo puedo ayudar?"} />
         </Link>,
       ]}
@@ -36,13 +38,13 @@ const Footer = () => (
     <FooterCtn
       title={"Recursos"}
       content={[
-        <Link to={"/dictionary"} key={"col-3-1"}>
+        <Link to={"/dictionary"} key={"col-3-1"} className={classesForLink}>
           <FooterText text={"Glosario"} />
         </Link>,
-        <Link to={"/faq"} key={"col-3-2"}>
+        <Link to={"/faq"} key={"col-3-2"} className={classesForLink}>
           <FooterText text={"Preguntas frecuentes"} />
         </Link>,
-        <Link to={"/references"} key={"col-3-3"}>
+        <Link to={"/references"} key={"col-3-3"} className={classesForLink}>
           <FooterText text={"Fuentes y referencias"} />
         </Link>,
       ]}

@@ -9,7 +9,7 @@ const NavOption = ({ to, text }: NavOptionProps) => (
   <Link
     to={to}
     activeProps={{
-      className: "bg-accent p-2 rounded-2xl",
+      className: "bg-accent p-2 rounded-2xl w-fit cursor-text",
     }}
     inactiveProps={{
       className: "hover:scale-110 transition-all duration-300 ease-in-out",
