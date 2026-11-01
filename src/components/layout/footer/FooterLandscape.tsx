@@ -1,6 +1,6 @@
-import type { SVGProps } from "react"
+import type { ComponentProps } from "react"
 
-export type FooterLandscapeProps = SVGProps<SVGSVGElement> & {
+export type FooterLandscapeProps = ComponentProps<"svg"> & {
   title?: string
 }
 

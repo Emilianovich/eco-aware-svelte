@@ -1,3 +1,4 @@
+@import "@fontsource-variable/fredoka";
 @import "tailwindcss";
 
 :root {
@@ -53,6 +54,7 @@
 }
 
 @theme inline {
+  --font-sans: "Fredoka Variable", ui-sans-serif, system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
@@ -75,4 +77,34 @@
 
   --color-info: var(--info);
   --color-info-foreground: var(--info-foreground);
+}
+html {
+  scrollbar-width: thin;
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "main main"
+    "footer footer";
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto 1fr auto;
+  min-height: 100dvh;
+}
+
+#root {
+  display: contents;
+}
+
+header {
+  grid-area: header;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
 }
