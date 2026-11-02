@@ -1,4 +1,6 @@
 @import "@fontsource-variable/fredoka";
+@import "@fontsource-variable/lora";
+@import "@fontsource-variable/lora/wght-italic.css";
 @import "tailwindcss";
 
 :root {
@@ -55,6 +57,7 @@
 
 @theme inline {
   --font-sans: "Fredoka Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-quote: "Lora Variable", ui-sans-serif, system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
@@ -84,6 +87,7 @@ html {
 
 body {
   display: grid;
+  background-color: var(--background);
   grid-template-areas:
     "header header"
     "main main"
@@ -107,4 +111,8 @@ main {
 
 footer {
   grid-area: footer;
+}
+
+q::after {
+  content: none;
 }

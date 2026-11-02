@@ -1,4 +1,4 @@
-import Nav from "./Nav.tsx"
+import Nav from "@/components/layout/header/Nav.tsx"
 
 const Header = () => (
   <header className={"w-screen p-2"}>

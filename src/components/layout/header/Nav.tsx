@@ -1,7 +1,7 @@
-import Logo from "../../ui/logo/Logo.tsx"
-import NavOption from "./NavOption.tsx"
+import Logo from "@/components/ui/logo/Logo.tsx"
+import NavOption from "@/components/layout/header/NavOption.tsx"
 import { HomeIcon } from "lucide-react"
-import IconButton from "../../ui/button-with-svg/IconButton.tsx"
+import IconButton from "@/components/ui/button-with-svg/IconButton.tsx"
 import { useNavigate } from "@tanstack/react-router"
 
 const Nav = () => {
