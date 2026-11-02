@@ -1,7 +1,9 @@
-import AccordionCtn from "./AccordionCtn.tsx"
-import { useCallback, useState } from "react"
-import AccordionItem from "./AccordionItem.tsx"
-
+import AccordionCtn from "@/components/ui/index-components/AccordionCtn.tsx"
+import { useCallback, useMemo, useState } from "react"
+import AccordionItem from "@/components/ui/index-components/AccordionItem.tsx"
+import { accordionItems } from "@/data/accordion-data.ts"
+import IconButton from "@/components/ui/button-with-svg/IconButton.tsx"
+import { ArrowRight, ArrowLeft } from "lucide-react"
 const accordionItemColors = [
   "bg-secondary",
   "bg-accent",
@@ -10,96 +12,56 @@ const accordionItemColors = [
   "bg-secondary",
   "bg-accent",
 ] as const
+
 const Accordion = () => {
   const [selected, setSelected] = useState(0)
   const becomeSelected = useCallback((i: number) => setSelected(i), [])
+  const items = useMemo(() => {
+    return accordionItems.map((item, i) => (
+      <AccordionItem
+        {...item}
+        assignedNumber={i}
+        itemSelected={selected}
+        becomeSelected={becomeSelected}
+        color={accordionItemColors[i]}
+        key={item.title}
+      />
+    ))
+  }, [selected, becomeSelected])
+  const svgProps = {
+    className:
+      "text-primary-foreground size-4 hover:scale-90 transition-all duration-200 ease-in-out cursor-pointer",
+  }
   return (
-    <AccordionCtn>
-      <AccordionItem
-        titleWithYear={"Niñez"}
-        year={2025}
-        category={"Panamá"}
-        title={"Uno de cada cuatro"}
-        description={
-          "Uno de cada cuatro niños, niñas y adolescentes vive en zonas de alta vulnerabilidad climática."
-        }
-        source={"youtube.com"}
-        assignedNumber={0}
-        itemSelected={selected}
-        becomeSelected={becomeSelected}
-        color={accordionItemColors[0]}
-      />
-      <AccordionItem
-        titleWithYear={"Niñez"}
-        year={2026}
-        category={"Sequías"}
-        title={"Uno de cada cuatro"}
-        description={
-          "Uno de cada cuatro niños, niñas y adolescentes vive en zonas de alta vulnerabilidad climática."
-        }
-        source={"youtube.com"}
-        assignedNumber={1}
-        itemSelected={selected}
-        becomeSelected={becomeSelected}
-        color={accordionItemColors[1]}
-      />
-      <AccordionItem
-        titleWithYear={"Niñez"}
-        year={2026}
-        category={"Huracanes"}
-        title={"Uno de cada cuatro"}
-        description={
-          "Uno de cada cuatro niños, niñas y adolescentes vive en zonas de alta vulnerabilidad climática."
-        }
-        source={"youtube.com"}
-        assignedNumber={2}
-        itemSelected={selected}
-        becomeSelected={becomeSelected}
-        color={accordionItemColors[2]}
-      />
-      <AccordionItem
-        titleWithYear={"Niñez"}
-        year={2026}
-        category={"Océanos"}
-        title={"Uno de cada cuatro"}
-        description={
-          "Uno de cada cuatro niños, niñas y adolescentes vive en zonas de alta vulnerabilidad climática."
-        }
-        source={"youtube.com"}
-        assignedNumber={3}
-        itemSelected={selected}
-        becomeSelected={becomeSelected}
-        color={accordionItemColors[3]}
-      />
-      <AccordionItem
-        titleWithYear={"Niñez"}
-        year={2026}
-        category={"Sequías"}
-        title={"Uno de cada cuatro"}
-        description={
-          "Uno de cada cuatro niños, niñas y adolescentes vive en zonas de alta vulnerabilidad climática."
-        }
-        source={"youtube.com"}
-        assignedNumber={4}
-        itemSelected={selected}
-        becomeSelected={becomeSelected}
-        color={accordionItemColors[4]}
-      />
-      <AccordionItem
-        titleWithYear={"Niñez"}
-        year={2026}
-        category={"Océanos"}
-        title={"Uno de cada cuatro"}
-        description={
-          "Uno de cada cuatro niños, niñas y adolescentes vive en zonas de alta vulnerabilidad climática."
-        }
-        source={"youtube.com"}
-        assignedNumber={5}
-        itemSelected={selected}
-        becomeSelected={becomeSelected}
-        color={accordionItemColors[5]}
-      />
-    </AccordionCtn>
+    <AccordionCtn
+      accordion={items}
+      navigation={
+        <>
+          <span
+            className={"text-sm text-primary-foreground/72"}
+          >{`Mostrando: ${accordionItems[selected].category}`}</span>
+          <div className={"flex w-20 items-center justify-between"}>
+            <span
+              className={"text-primary-foreground/72"}
+            >{`${selected + 1} /${accordionItems.length}`}</span>
+            {selected !== 0 && (
+              <IconButton
+                action={() => setSelected(selected - 1)}
+                Icon={ArrowLeft}
+                svgProps={svgProps}
+              />
+            )}
+            {selected + 1 !== accordionItems.length && (
+              <IconButton
+                action={() => setSelected(selected + 1)}
+                Icon={ArrowRight}
+                svgProps={svgProps}
+              />
+            )}
+          </div>
+        </>
+      }
+    />
   )
 }
 

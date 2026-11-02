@@ -1,14 +1,12 @@
-import HighlightedText from "../highlighted-text/HighlightedText.tsx"
+import HighlightedText from "@/components/ui/highlighted-text/HighlightedText.tsx"
 import { useNavigate } from "@tanstack/react-router"
-import Button from "../button/Button.tsx"
+import Button from "@/components/ui/button/Button.tsx"
 
 // 4:15 => 6:27
 const Hero = () => {
   const navigate = useNavigate()
   return (
-    <section
-      className={"mt-10 ml-45 grid w-8/10 grid-cols-[490px_1fr] grid-rows-[1fr_auto] gap-y-6"}
-    >
+    <section className={"mt-10 grid w-8/10 grid-cols-[490px_1fr] grid-rows-[1fr_auto] gap-y-6"}>
       <article className={"flex flex-col gap-6"}>
         <div className={""}>
           <h1 className={"text-5xl leading-15 font-medium tracking-wide text-wrap text-foreground"}>

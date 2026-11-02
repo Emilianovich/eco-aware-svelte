@@ -39,7 +39,7 @@ const AccordionItem = ({
       </div>
       {isSelected && (
         <div
-          className={`animate__animated h-85 p-2 ${swipeLeft ? "animate__slideInLeft" : "animate__slideInRight"}`}
+          className={`animate__animated animate__slideInLeft h-85 p-2 ${swipeLeft ? "animate__slideInLeft" : "animate__slideInRight"}`}
         >
           <div className={"mt-8 flex w-180 flex-col items-start justify-center gap-10"}>
             <span className={"text-sm"}>{`${titleWithYear} - ${year}`}</span>

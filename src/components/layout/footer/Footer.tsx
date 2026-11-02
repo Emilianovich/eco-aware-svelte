@@ -1,8 +1,8 @@
-import FooterLandscape from "./FooterLandscape.tsx"
-import FooterCtn from "./FooterCtn.tsx"
-import FooterText from "./FooterText.tsx"
+import FooterLandscape from "@/components/layout/footer/FooterLandscape.tsx"
+import FooterCtn from "@/components/layout/footer/FooterCtn.tsx"
+import FooterText from "@/components/layout/footer/FooterText.tsx"
 import { Link } from "@tanstack/react-router"
-import Logo from "../../ui/logo/Logo.tsx"
+import Logo from "@/components/ui/logo/Logo.tsx"
 
 const classesForLink = "hover:scale-95 transition duration-100 ease-in-out"
 
